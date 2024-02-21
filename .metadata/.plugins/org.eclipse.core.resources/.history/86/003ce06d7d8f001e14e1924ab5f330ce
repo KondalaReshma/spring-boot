@@ -1,0 +1,37 @@
+package com.orderapi.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.orderapi.entities.Cart;
+import com.orderapi.service.CartService;
+
+@RestController
+@RequestMapping("/cart")
+public class CartController {
+	
+	@Autowired
+	private CartService cartService;
+	
+	
+	@PostMapping("/{id}")
+    public ResponseEntity<Cart> createCart(@RequestBody Cart cart,@PathVariable Long id) {
+        Cart createdCart = cartService.createCart(cart,id);
+        return ResponseEntity.ok(createdCart);
+    }
+	
+	@DeleteMapping("/{cartId}")
+    public ResponseEntity<Void> deleteCart(@PathVariable Long cartId) {
+        cartService.deleteCart(cartId);
+        return ResponseEntity.noContent().build();
+    }
+	
+	
+}

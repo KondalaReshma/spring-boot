@@ -1,0 +1,33 @@
+package com.example.Mappings.Controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.Mappings.Entites.Employee;
+import com.example.Mappings.Repository.EmployeeRepository;
+import com.example.Mappings.Service.EmployeeService;
+
+
+@RestController
+public class EmployeeController {
+
+	
+
+	
+	@Autowired
+	private EmployeeService employeeService;
+	
+	@PostMapping("/saveEmp")
+	public ResponseEntity<Employee> saveEmp(@RequestBody Employee emp) {
+		Employee newemp = employeeService.saveEmp(emp);
+		return new ResponseEntity<>(newemp, HttpStatus.CREATED);
+	
+	}
+
+}

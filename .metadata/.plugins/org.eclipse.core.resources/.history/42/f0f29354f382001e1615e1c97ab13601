@@ -1,0 +1,5 @@
+package com.orderapi.config;
+
+public class SwaggerConfig {
+
+}

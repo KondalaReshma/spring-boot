@@ -1,0 +1,5 @@
+package com.consumeapi.entity;
+
+public class DataResponse {
+
+}

@@ -1,0 +1,35 @@
+package com.orderapi.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.orderapi.entities.Pricing;
+import com.orderapi.service.PricingService;
+
+@RestController
+@RequestMapping("/price")
+public class PricingController {
+	
+	
+	@Autowired
+	private PricingService pricingService;
+	
+	
+	@PutMapping("/{pricingId}/setDiscount")
+    public ResponseEntity<Pricing> setDiscount(@PathVariable Long id, @RequestParam double discount) {
+        Pricing updatedPricing = pricingService.setDiscount(id, discount);
+        return ResponseEntity.ok(updatedPricing);
+    }
+
+    @PutMapping("/{pricingId}/setSpecialOffer")
+    public ResponseEntity<Pricing> setSpecialOffer(@PathVariable Long id, @RequestParam String specialOffer) {
+        Pricing updatedPricing = pricingService.setSpecialOffer(id, specialOffer);
+        return ResponseEntity.ok(updatedPricing);
+    }
+
+}

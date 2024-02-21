@@ -1,0 +1,5 @@
+package com.example.mail.mailsend.impl;
+
+public class EmailServiceImpl {
+
+}

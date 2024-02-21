@@ -1,0 +1,8 @@
+server.port =8111
+spring.datasource.url=jdbc:mysql://localhost:3306/mappings 
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.username=root
+spring.datasource.password=Welcome2evoke@1234
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
